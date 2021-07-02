@@ -16,6 +16,7 @@ class TweetResource extends JsonResource
     {
         return [
             'text' => $this->text,
+            'created_by' => $this->createdBy,
         ];
     }
 }

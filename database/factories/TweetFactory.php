@@ -26,7 +26,7 @@ class TweetFactory extends Factory
     {
         return [
             'text' => $this->faker->realText(),
-            'created_by' => User::all()->random()->id,
+            'user_id' => User::all()->random()->id,
         ];
     }
 }

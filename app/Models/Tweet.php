@@ -14,7 +14,11 @@ class Tweet extends Model
 
     protected $fillable = [
         'text',
-        'created_by',
-        'updated_by',
+        'user_id',
     ];
+
+    public function createdBy()
+    {
+        return $this->hasOne(User::class,'id');
+    }
 }

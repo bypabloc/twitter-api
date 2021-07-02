@@ -12,6 +12,6 @@ class UserController extends Controller
 {
     public function list()
     {
-        return new UserCollection(User::latest()->paginate());
+        return new UserCollection(User::with('tweets')->latest()->paginate());
     }
 }
