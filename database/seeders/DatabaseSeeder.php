@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $nickname = 'bypabloc';
         $email = 'pacg1991@gmail.com';
 
