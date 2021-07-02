@@ -10,18 +10,18 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $req)
     {
-        $this->validateLogin($request);
+        $this->validateLogin($req);
 
         $credentials = [
-            'password' => $request->password,
+            'password' => $req->password,
         ];
 
-        if (filter_var($request->user, FILTER_VALIDATE_EMAIL)) {
-            $credentials['email'] = $request->user;
+        if (filter_var($req->user, FILTER_VALIDATE_EMAIL)) {
+            $credentials['email'] = $req->user;
         }else{
-            $credentials['nickname'] = $request->user;
+            $credentials['nickname'] = $req->user;
         }
 
         if (!Auth::attempt($credentials)) {
@@ -31,13 +31,13 @@ class LoginController extends Controller
         }
 
         return response()->json([
-            'token' => $request->user()->createToken($request->device)->plainTextToken,
+            'token' => $req->user()->createToken($req->device)->plainTextToken,
         ]);
     }
 
-    public function validateLogin(Request $request)
+    public function validateLogin(Request $req)
     {
-        return $request->validate([
+        return $req->validate([
             'user' => 'required',
             'password' => 'required',
             'device' => 'required'

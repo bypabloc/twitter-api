@@ -12,14 +12,14 @@ use \App\Models\User;
 
 class RegisterController extends Controller
 {
-    public function register(Request $request)
+    public function register(Request $req)
     {
-        $this->validateRegister($request);
+        $this->validateRegister($req);
 
-        $name = $request->name;
-        $nickname = $request->nickname;
-        $email = $request->email;
-        $password = $request->password;
+        $name = $req->name;
+        $nickname = $req->nickname;
+        $email = $req->email;
+        $password = $req->password;
 
         $errors = [];
 
@@ -58,13 +58,13 @@ class RegisterController extends Controller
         }
 
         return response()->json([
-            'token' => $request->user()->createToken($request->device)->plainTextToken,
+            'token' => $req->user()->createToken($req->device)->plainTextToken,
         ]);
     }
 
-    public function validateRegister(Request $request)
+    public function validateRegister(Request $req)
     {
-        return $request->validate([
+        return $req->validate([
             'name' => 'required',
             'email' => 'required',
             'nickname' => 'required',

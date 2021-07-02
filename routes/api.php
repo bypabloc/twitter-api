@@ -16,6 +16,7 @@ Route::prefix('v1')->group(function () {
 
         Route::prefix('tweets')->group(function () {
             Route::get('/',[TweetV1::class,'list']);
+            Route::post('new_tweet',[TweetV1::class,'newTweet']);
         });
 
     });

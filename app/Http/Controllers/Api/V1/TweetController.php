@@ -14,4 +14,27 @@ class TweetController extends Controller
     {
         return new TweetCollection(Tweet::latest()->paginate());
     }
+
+    public function newTweet(Request $req)
+    {
+        $this->validateNewTweet($req);
+
+        $text = $req->text;
+
+        return [
+            '$text' => $text,
+            '$req' => $req,
+        ];
+
+        $user = new Tweet;
+        $user->text = $text;
+        $user->save();
+    }
+
+    public function validateNewTweet(Request $req)
+    {
+        return $req->validate([
+            'text' => 'required|max:250',
+        ]);
+    }
 }
