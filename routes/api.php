@@ -7,13 +7,17 @@ use App\Http\Controllers\Api\V1\UserController as UserV1;
 use App\Http\Controllers\Api\V1\TweetController as TweetV1;
 
 Route::prefix('v1')->group(function () {
+
     Route::middleware(['auth:sanctum'])->group(function () {
+
         Route::prefix('users')->group(function () {
             Route::get('/',[UserV1::class,'list']);
         });
+
         Route::prefix('tweets')->group(function () {
             Route::get('/',[TweetV1::class,'list']);
         });
+
     });
 
     Route::post('login', [
@@ -24,4 +28,5 @@ Route::prefix('v1')->group(function () {
         App\Http\Controllers\Api\V1\RegisterController::class,
         'register'
     ]);
+    
 });
