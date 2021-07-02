@@ -21,15 +21,18 @@ class TweetController extends Controller
         $this->validateNewTweet($req);
 
         $text = $req->text;
+        $user = $req->user();
 
-        return [
-            '$text' => $text,
-            '$req' => $req,
-        ];
+        $tweet = new Tweet;
+        $tweet->text = $text;
+        $tweet->user_id = $user->id;
+        $tweet->save();
 
-        $user = new Tweet;
-        $user->text = $text;
-        $user->save();
+        return response()->json([
+            'data' => [
+                'tweet' => $tweet,
+            ],
+        ]);
     }
 
     public function validateNewTweet(Request $req)
