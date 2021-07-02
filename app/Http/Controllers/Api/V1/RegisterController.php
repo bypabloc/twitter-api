@@ -21,17 +21,21 @@ class RegisterController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        $queryResult = User::where('email',$email)->first();
-        if (!empty($queryResult)) {
-            return response()->json([
-                'errors' => ['El correo ya fue indicado'],
-            ], 422);
+        $errors = [];
+
+        $queryEmail = User::where('email',$email)->first();
+        $queryNickname = User::where('nickname',$nickname)->first();
+
+        if (!empty($queryEmail)) {
+            $errors = [...$errors, 'El correo ya fue indicado'];
+        }
+        if (!empty($queryNickname)) {
+            $errors = [...$errors, 'El usuario ya fue indicado'];
         }
 
-        $queryResult = User::where('nickname',$nickname)->first();
-        if (!empty($queryResult)) {
+        if (!empty($errors)) {
             return response()->json([
-                'errors' => ['El usuario ya fue indicado'],
+                'errors' => $errors,
             ], 422);
         }
 
