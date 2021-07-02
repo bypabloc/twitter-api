@@ -13,3 +13,8 @@ Route::post('v1/login', [
     App\Http\Controllers\Api\V1\LoginController::class,
     'login'
 ]);
+
+Route::post('v1/register', [
+    App\Http\Controllers\Api\V1\RegisterController::class,
+    'register'
+]);

@@ -19,5 +19,9 @@ php artisan key:generate
 ```
 php artisan migrate
 ```
-## las migraciones creara una lista de 10 usuarios, la contraseña para todos es "123456" (sin las comillas)
+
+## ejecuta los seeds, esto creara una lista de 10 usuarios, la contraseña para todos es "123456" (sin las comillas)
+```
+php artisan db:seed
+```
 
