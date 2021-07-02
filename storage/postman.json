@@ -25,11 +25,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/users",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/users",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -54,7 +55,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|YwagUrb29RvnpHg0GRfVQypKD5CHxtYuSP6ZcD90",
+									"value": "3|9AQL9vPXh37VlSF4tE5goHFo9IekunzQCpfgtECi",
 									"type": "string"
 								}
 							]
@@ -72,11 +73,12 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/users",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/users",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -129,11 +131,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/login",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/login",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -181,11 +184,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/login",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/login",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -248,11 +252,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/register",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/register",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -282,7 +287,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|YwagUrb29RvnpHg0GRfVQypKD5CHxtYuSP6ZcD90",
+									"value": "3|9AQL9vPXh37VlSF4tE5goHFo9IekunzQCpfgtECi",
 									"type": "string"
 								}
 							]
@@ -300,11 +305,12 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/tweets",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/tweets",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
@@ -323,6 +329,16 @@
 						}
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|9AQL9vPXh37VlSF4tE5goHFo9IekunzQCpfgtECi",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -335,43 +351,25 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "name",
-									"value": "Pablo Contreras",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "pacg1991@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "nickname",
-									"value": "bypabloc",
-									"type": "text"
-								},
-								{
-									"key": "device",
-									"value": "postman",
+									"key": "text",
+									"value": "Texto 1",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://twitter-api.prueba/api/v1/register",
-							"protocol": "http",
+							"raw": "https://bypabloc-twitter-api.herokuapp.com/api/v1/tweets/new_tweet",
+							"protocol": "https",
 							"host": [
-								"twitter-api",
-								"prueba"
+								"bypabloc-twitter-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"api",
 								"v1",
-								"register"
+								"tweets",
+								"new_tweet"
 							]
 						}
 					},
