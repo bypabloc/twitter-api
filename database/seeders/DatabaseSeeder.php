@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
             $user->save();
         }
 
-        \App\Models\User::factory(10)->create();
-
+        User::factory(9)->create();
     }
 }
