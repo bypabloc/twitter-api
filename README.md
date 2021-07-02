@@ -33,3 +33,5 @@ php artisan db:seed
 #### nickname: bypabloc
 #### email: pacg1991@gmail.com
 #### password: 123456
+
+#### En la carpeta "storage/" se encuentra un archivo llamado "postman.json", este contiene las pruebas utilizadas en postman para hacer consultas y registros en la API. 
