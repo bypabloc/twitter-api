@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 use \App\Models\User;
+use \App\Models\Tweet;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,5 +38,6 @@ class DatabaseSeeder extends Seeder
         }
 
         User::factory(9)->create();
+        Tweet::factory(100)->create();
     }
 }
