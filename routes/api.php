@@ -19,7 +19,7 @@ Route::prefix('v1')->group(function () {
             Route::post('new_tweet',[TweetV1::class,'newTweet']);
         });
 
-        Route::post('logout', [
+        Route::get('logout', [
             App\Http\Controllers\Api\V1\LoginController::class,
             'logout'
         ]);
