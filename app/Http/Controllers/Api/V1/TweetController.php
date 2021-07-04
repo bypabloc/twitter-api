@@ -39,7 +39,19 @@ class TweetController extends Controller
 
     public function newTweet(Request $req)
     {
-        $this->validateNewTweet($req);
+        $errors = [];
+
+        $text = isset($req->text) ? $req->text : null;
+
+        if (empty($text)) {
+            $errors = [...$errors, 'No indicó un texto'];
+        }
+
+        if (!empty($errors)) {
+            return response()->json([
+                'errors' => $errors,
+            ], 422);
+        }
 
         $text = $req->text;
         $user = $req->user();
@@ -48,7 +60,6 @@ class TweetController extends Controller
         $tweet->text = $text;
         $tweet->user_id = $user->id;
         $tweet->save();
-
 
         $queryResult = Tweet::select([
             'tweets.text',
@@ -75,13 +86,6 @@ class TweetController extends Controller
 
         return response()->json([
             'data' => $queryResult,
-        ]);
-    }
-
-    public function validateNewTweet(Request $req)
-    {
-        return $req->validate([
-            'text' => 'required|max:250',
         ]);
     }
 }

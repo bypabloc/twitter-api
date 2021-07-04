@@ -41,7 +41,6 @@ class RegisterController extends Controller
         if (!empty($errors)) {
             return response()->json([
                 'errors' => $errors,
-                'req->all()' => $req->all(),
             ], 422);
         }
 
