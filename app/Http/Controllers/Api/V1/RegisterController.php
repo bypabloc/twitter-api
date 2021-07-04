@@ -14,12 +14,35 @@ class RegisterController extends Controller
 {
     public function register(Request $req)
     {
-        $this->validateRegister($req);
+        $errors = [];
 
-        $name = $req->name;
-        $nickname = $req->nickname;
-        $email = $req->email;
-        $password = $req->password;
+        $name = isset($req->name) ? $req->name : null;
+        $email = isset($req->email) ? $req->email : null;
+        $nickname = isset($req->nickname) ? $req->nickname : null;
+        $password = isset($req->password) ? $req->password : null;
+        $device = $req->hasHeader('device') ? $req->header('device') : null;
+
+        if (empty($name)) {
+            $errors = [...$errors, 'No indicó un nombre'];
+        }
+        if (empty($email)) {
+            $errors = [...$errors, 'No indicó un correo'];
+        }
+        if (empty($user)) {
+            $errors = [...$errors, 'No indicó un usuario'];
+        }
+        if (empty($password)) {
+            $errors = [...$errors, 'No indicó una contraseña'];
+        }
+        if (empty($device)) {
+            $errors = [...$errors, 'No indicó un dispositivo'];
+        }
+
+        if (!empty($errors)) {
+            return response()->json([
+                'errors' => $errors,
+            ], 422);
+        }
 
         $errors = [];
 
@@ -58,7 +81,7 @@ class RegisterController extends Controller
         }
 
         return response()->json([
-            'token' => $req->user()->createToken($req->device)->plainTextToken,
+            'token' => $req->user()->createToken($device)->plainTextToken,
         ]);
     }
 
