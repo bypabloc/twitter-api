@@ -82,6 +82,9 @@ class RegisterController extends Controller
 
         return response()->json([
             'token' => $req->user()->createToken($device)->plainTextToken,
+            'name' => $user->name,
+            'nickname' => $user->nickname,
+            'email' => $user->email,
         ]);
     }
 
