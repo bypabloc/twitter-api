@@ -28,7 +28,7 @@ class RegisterController extends Controller
         if (empty($email)) {
             $errors = [...$errors, 'No indicó un correo'];
         }
-        if (empty($user)) {
+        if (empty($nickname)) {
             $errors = [...$errors, 'No indicó un usuario'];
         }
         if (empty($password)) {
@@ -41,6 +41,7 @@ class RegisterController extends Controller
         if (!empty($errors)) {
             return response()->json([
                 'errors' => $errors,
+                'req->all()' => $req->all(),
             ], 422);
         }
 
