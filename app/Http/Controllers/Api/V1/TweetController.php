@@ -63,7 +63,6 @@ class TweetController extends Controller
 
         $queryResult = Tweet::select([
             'tweets.text',
-            // DB::raw('DATE_FORMAT(tweets.created_at,"%Y/%m/%d %H:%i:%S") as created_at'),
             DB::raw("DATE_FORMAT(created_at, '%Y/%m/%d %H:%i:%S') AS created_at"),
             DB::raw('
                 (
