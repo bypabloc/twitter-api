@@ -19,6 +19,6 @@ class Tweet extends Model
 
     public function createdBy()
     {
-        return $this->hasOne(User::class,'id');
+        return $this->hasOne(User::class,'id','user_id');
     }
 }
