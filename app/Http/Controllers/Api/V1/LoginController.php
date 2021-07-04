@@ -66,10 +66,12 @@ class LoginController extends Controller
         */
 
         return response()->json([
-            'token' => $req->user()->createToken($device)->plainTextToken,
-            'name' => $queryResult['name'],
-            'nickname' => $queryResult['nickname'],
-            'email' => $queryResult['email'],
+            'data' => [
+                'token' => $req->user()->createToken($device)->plainTextToken,
+                'name' => $queryResult->name,
+                'nickname' => $queryResult->nickname,
+                'email' => $queryResult->email,
+            ]
         ]);
     }
     

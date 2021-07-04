@@ -82,21 +82,12 @@ class RegisterController extends Controller
         }
 
         return response()->json([
-            'token' => $req->user()->createToken($device)->plainTextToken,
-            'name' => $user->name,
-            'nickname' => $user->nickname,
-            'email' => $user->email,
-        ]);
-    }
-
-    public function validateRegister(Request $req)
-    {
-        return $req->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'nickname' => 'required',
-            'password' => 'required',
-            'device' => 'required',
+            'data' => [
+                'token' => $req->user()->createToken($device)->plainTextToken,
+                'name' => $user->name,
+                'nickname' => $user->nickname,
+                'email' => $user->email,
+            ]
         ]);
     }
 }
